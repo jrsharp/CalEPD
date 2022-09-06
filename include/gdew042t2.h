@@ -43,10 +43,11 @@ class Gdew042t2 : public Epd
 
     // This are already inherited from Epd: write(uint8_t); print(const std::string& text);println(same);
 
+    uint8_t _buffer[GDEW042T2_BUFFER_SIZE];
+
   private:
     EpdSpi& IO;
 
-    uint8_t _buffer[GDEW042T2_BUFFER_SIZE];
     bool _using_partial_mode = false;
     bool _initial = true;
 

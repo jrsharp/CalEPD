@@ -12,9 +12,13 @@ set(srcs
 
 # If the project does not use a touch display component FT6X36-IDF can be removed or #commented
 idf_component_register(SRCS ${srcs}      
-                    REQUIRES "Adafruit-GFX"
+                    REQUIRES "Adafruit-GFX" "driver"
                     INCLUDE_DIRS "include"
 )
+
+target_link_options(${COMPONENT_LIB} PUBLIC -fpermissive)
+target_compile_options(${COMPONENT_LIB} PUBLIC -fpermissive)
+
 # Note about epdiy component: Even if it's not REQUIRED sometimes CMake includes it
 #      giving errors. If that happens, just open the component CMakeLists and add:
 #      return()
