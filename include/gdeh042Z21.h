@@ -42,11 +42,11 @@ class Gdeh042Z21 : public Epd
     // This are already inherited from Epd: write(uint8_t); print(const std::string& text);println(same);
     std::string model = "GDEH042Z15";
 
-  private:
-    EpdSpi& IO;
-
     uint8_t _black_buffer[GDEH042Z21_BUFFER_SIZE];
     uint8_t _red_buffer[GDEH042Z21_BUFFER_SIZE];
+
+  private:
+    EpdSpi& IO;
 
     bool _initial = true;
 
@@ -54,4 +54,18 @@ class Gdeh042Z21 : public Epd
     void _sleep();
     void _waitBusy(const char* message);
     void _rotate(uint16_t& x, uint16_t& y, uint16_t& w, uint16_t& h);
+
+    // Command & data structs
+    static const epd_init_44 lut_vcom0_full;
+    static const epd_init_42 lut_ww_full;
+    static const epd_init_42 lut_bw_full;
+    static const epd_init_42 lut_wb_full;
+    static const epd_init_42 lut_bb_full;
+
+    static const epd_init_44 lut_20_vcom0_partial;
+    static const epd_init_42 lut_21_ww_partial;
+    static const epd_init_42 lut_22_bw_partial;
+    static const epd_init_42 lut_23_wb_partial;
+    static const epd_init_42 lut_24_bb_partial;
+
 };
