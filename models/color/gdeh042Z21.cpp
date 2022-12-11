@@ -20,7 +20,7 @@ void Gdeh042Z21::init(bool debug)
     debug_enabled = debug;
     if (debug_enabled) printf("Gdeh042Z21::init(%d) and reset EPD\n", debug);
     //Initialize the Epaper and reset it
-    IO.init(4, debug); // 4MHz frequency, debug
+    IO.init(6, debug); // 4MHz frequency, debug
 
     //Reset the display
     IO.reset(20);
@@ -39,7 +39,7 @@ void Gdeh042Z21::_wakeUp(){
   IO.reset(10);
     
   IO.cmd(0x04);  
-  _waitBusy("epd_wakeup");; //waiting for the electronic paper IC to release the idle signal
+  _waitBusy("epd_wakeup"); //waiting for the electronic paper IC to release the idle signal
     
   IO.cmd(0x00);  //panel setting
   IO.data(0x0f); // LUT from OTP 400x300: No large initialization commands with this IC driver

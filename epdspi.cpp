@@ -1,6 +1,7 @@
 /* SPI Master IO class */
 #include <epdspi.h>
 #include <string.h>
+#include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
 #ifdef CONFIG_IDF_TARGET_ESP32
@@ -10,7 +11,7 @@
     #define EPD_HOST    SPI2_HOST
     #define DMA_CHAN    EPD_HOST
 #elif defined CONFIG_IDF_TARGET_ESP32S3
-    #define EPD_HOST    SPI2_HOST
+    #define EPD_HOST    SPI3_HOST
     #define DMA_CHAN    SPI_DMA_CH_AUTO
 #elif defined CONFIG_IDF_TARGET_ESP32C3
     // chip only support spi dma channel auto-alloc
@@ -160,7 +161,7 @@ void EpdSpi::data(const uint8_t *data, int len)
 
 void EpdSpi::reset(uint8_t millis=20) {
     gpio_set_level((gpio_num_t)CONFIG_EINK_RST, 0);
-    vTaskDelay(millis / portTICK_RATE_MS);
+    vTaskDelay(millis / portTICK_PERIOD_MS);
     gpio_set_level((gpio_num_t)CONFIG_EINK_RST, 1);
-    vTaskDelay(millis / portTICK_RATE_MS);
+    vTaskDelay(millis / portTICK_PERIOD_MS);
 }
