@@ -2,6 +2,9 @@
 
 **CalEPD is an ESP-IDF C++ component to drive epaper displays with ESP32 / ESP32S2**
 
+IMPORTANT NEWS: IDF v. 5 support is already on the way. Please switch to **develop** branch to test it, even if you are using 4.4 version, so you can help us to debug it and be safe when it merges.
+[Pull request to merge idf_v5 into master here](https://github.com/martinberlin/CalEPD/pull/8)
+
 ## Requirements
 
 * Espressif IDF framework **v. 4.3**
@@ -13,6 +16,10 @@
 CalEPD needs also [Adafruit-GFX-Library-ESP-IDF](https://github.com/martinberlin/Adafruit-GFX-Library-ESP-IDF) as a component since it's uses the GFX magic to provide fonts and geometrical functions to your pixel Buffer.
 To check how an existing project uses it check [CALE-IDF dependencies](https://github.com/martinberlin/cale-idf/network/dependencies) and the [components folder](https://github.com/martinberlin/cale-idf/tree/master/components).
 Please check the [paralell examples in Cale-idf](https://github.com/martinberlin/cale-idf/tree/master/main/demos/parallel) project to get a grasp of how they work together with the EPDiy integration. 
+
+### VSCODE and Platformio ★
+
+In the repository [cale-platformio](https://github.com/martinberlin/cale-platformio) you can have a quick start skeleton to use this component CalEPD and Adafruit-GFX together, along with optional FocalTech touch I2C. Please be aware that there are some corrections to do until we figure out what is the best way to do it. Read those in the WiKi and please give a **★ to the cale-platformio** repository if you find it useful.
 
 ### Touch models
 
@@ -52,6 +59,8 @@ All other users that fork this without falling in this categories and without an
 
 We don't like having copies of this without any reason. It is just a bad practice, makes things confusing, and makes absolutely no sense. This repository is not going to dissapear or be deleted by any means so you can use it with confidence.
 Forking this in order to make updates that fit your particular project is alright, as long as you update the readme and state what are the intentions to do so.
+
+### This fork: I hope to provide optimizations for at least two e-paper displays and would like to contribute these, if successful. --jrsharp
 
 ## Classmap 
 
