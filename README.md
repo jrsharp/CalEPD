@@ -60,6 +60,8 @@ All other users that fork this without falling in this categories and without an
 We don't like having copies of this without any reason. It is just a bad practice, makes things confusing, and makes absolutely no sense. This repository is not going to dissapear or be deleted by any means so you can use it with confidence.
 Forking this in order to make updates that fit your particular project is alright, as long as you update the readme and state what are the intentions to do so.
 
+### This fork: I hope to provide optimizations for at least two e-paper displays and would like to contribute these, if successful. --jrsharp
+
 ## Classmap 
 
 ![CalEPD Classmap](/assets/CalEPD_flow.svg)
